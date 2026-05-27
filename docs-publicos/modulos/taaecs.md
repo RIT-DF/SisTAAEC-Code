@@ -19,9 +19,9 @@ A tela **TAAECs** é a lista de todas as autorizações do seu ecossistema. Daqu
 Campo único de busca livre por:
 
 - **Número** (ex: `TAAEC-2026-00001`)
-- **Título** (ex: `AcampaGELL 2026`)
+- **Título** (ex: `Acampamento Exemplo 2026`)
 - **Atividade** (ex: `Fogueira`)
-- **Grupo** (ex: `LIS DO LAGO`)
+- **Grupo** (ex: `GRUPO BETA`)
 - **Numeral** (ex: `15`)
 
 A lista filtra em tempo real conforme você digita.

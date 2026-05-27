@@ -8,7 +8,7 @@ O **Painel** é a primeira tela após o login — o cockpit consolidado da sua g
 
 ## Cabeçalho
 
-À esquerda, o título **Painel TAAEC**, a frase "Visão consolidada de risco, governança e fluxo de autorização." e o seu nome com o grupo identificado (ex: *JOSÉ DE ANCHIETA · 11/3º Distrito*).
+À esquerda, o título **Painel TAAEC**, a frase "Visão consolidada de risco, governança e fluxo de autorização." e o seu nome com o grupo identificado (ex: *GRUPO EXEMPLO · 99/Distrito Demo*).
 
 À direita, o bloco **Ações rápidas** com atalhos:
 

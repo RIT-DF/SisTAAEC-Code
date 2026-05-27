@@ -100,4 +100,4 @@ Tudo mais (mkdocs, plugins, tema) é instalado em venv local por `./scripts/depl
 
 ## Licença e contato
 
-© 2026 RIT — Rede de Inovação e Transformação. Para dúvidas ou problemas, use o balão **💬 Sugestões / Correções** dentro do próprio sistema TAAEC ou contate [marcelo.sauguellis@rit.org.br](mailto:marcelo.sauguellis@rit.org.br).
+© 2026 RIT — Rede de Inovação e Transformação. Para dúvidas ou problemas, use o balão **💬 Sugestões / Correções** dentro do próprio sistema TAAEC ou contate [suporte@rit.org.br](mailto:suporte@rit.org.br).

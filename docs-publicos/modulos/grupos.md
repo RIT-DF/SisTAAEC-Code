@@ -22,9 +22,9 @@ Cada grupo escoteiro tem:
 
 | Campo | Descrição |
 |---|---|
-| **Numeral** | Número oficial do GE (ex: 11, 15) |
-| **Nome** | Razão escoteira (ex: JOSÉ DE ANCHIETA) |
-| **Distrito** | Distrito escoteiro ao qual pertence (ex: 3º Distrito) |
+| **Numeral** | Número oficial do GE (ex: 7, 22) |
+| **Nome** | Razão escoteira (ex: GRUPO EXEMPLO) |
+| **Distrito** | Distrito escoteiro ao qual pertence (ex: 5º Distrito) |
 | **UF** | Estado (DF, GO, etc.) |
 | **Status** | Ativo / Inativo |
 | **Admin do grupo** | Usuário(s) com papel `chefe_grupo` / `admin_grupo` no grupo |

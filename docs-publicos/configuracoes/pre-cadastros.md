@@ -44,7 +44,7 @@ Vantagens:
    | Campo | Exemplo | Observação |
    |---|---|---|
    | E-mail | `dme@gejaonline.org` | E-mail que a pessoa usará para se cadastrar |
-   | Grupo | 11 — JOSÉ DE ANCHIETA | Grupo ao qual o papel se vincula |
+   | Grupo | 99 — GRUPO EXEMPLO | Grupo ao qual o papel se vincula |
    | Papel | DME | Papel a aplicar no signup |
    | Observação | "DME 2026 — substituto do João" | Opcional, ajuda triagem |
 

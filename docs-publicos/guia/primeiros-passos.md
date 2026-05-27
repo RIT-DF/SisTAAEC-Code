@@ -36,12 +36,12 @@ Acesse **Meu perfil** no menu lateral. Preencha:
 
 | Campo | Exemplo | Observação |
 |---|---|---|
-| Nome completo | Bruno Carvalho Castro Souza | Como aparece no registro |
-| Telefone | 61992780605 | Sem máscara, só números |
-| Registro escoteiro | 609958-0 | Formato com hífen |
+| Nome completo | Maria da Silva | Como aparece no registro |
+| Telefone | 61999990000 | Sem máscara, só números |
+| Registro escoteiro | 999999-0 | Formato com hífen |
 | UF | DF | Sigla |
 | Numeral do grupo | 11 | Número do GE |
-| Grupo escoteiro | JOSÉ DE ANCHIETA (11/3º Distrito) | Selecione na lista |
+| Grupo escoteiro | GRUPO EXEMPLO (99/Distrito Demo) | Selecione na lista |
 
 Clique em **Salvar alterações**.
 

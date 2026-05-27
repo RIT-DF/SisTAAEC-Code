@@ -76,7 +76,7 @@ Acessível a Admin Mestre, Regional e (em algumas seções) Admin de Grupo / Pre
 
 Dúvidas ou problemas? Use o balão **💬 Sugestões / Correções** que aparece no canto inferior direito de qualquer tela — sua mensagem vai direto para a administração já com a tela atual e seu usuário identificados.
 
-Contato institucional: [marcelo.sauguellis@rit.org.br](mailto:marcelo.sauguellis@rit.org.br).
+Contato institucional: [suporte@rit.org.br](mailto:suporte@rit.org.br).
 
 ---
 

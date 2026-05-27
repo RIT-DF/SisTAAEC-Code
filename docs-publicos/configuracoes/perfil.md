@@ -19,7 +19,7 @@ Bloco superior com informações **controladas pelo sistema** (não editáveis):
 
 | Campo | Conteúdo |
 |---|---|
-| **E-mail** | Seu e-mail principal de login (ex: `bruno.souza@rit.org.br`) |
+| **E-mail** | Seu e-mail principal de login (ex: `maria.silva@exemplo.org.br`) |
 | **ID** | Identificador único do seu usuário no banco (UUID) |
 | **Papéis atribuídos** | Lista de papéis ativos (ex: *Admin Mestre*, *Responsável*) |
 
@@ -51,7 +51,7 @@ Bloco editável:
 |---|---|---|
 | Nome completo | ✅ | Como aparece na assinatura institucional |
 | Telefone | ✅ | Sem máscara |
-| Registro escoteiro | ✅ | Formato com hífen (ex: 609958-0) |
+| Registro escoteiro | ✅ | Formato com hífen (ex: 999999-0) |
 | UF | ✅ | Sigla |
 | Numeral do grupo | ✅ | Número do GE |
 | Grupo escoteiro | ✅ | Combo com os grupos cadastrados |
