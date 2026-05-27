@@ -1,0 +1,118 @@
+site_name: Sistema TAAEC — Documentação
+site_url: https://rit-df.github.io/SisTAAEC/
+site_description: >-
+  Manual do usuário do Sistema TAAEC (Termo de Autorização de Atividades
+  Escoteiras e Controle) — Regional DF dos Escoteiros do Brasil.
+site_author: RIT — Rede de Inovação e Transformação
+
+repo_name: RIT-DF/SisTAAEC
+repo_url: https://github.com/RIT-DF/SisTAAEC
+edit_uri: edit/main/docs-publicos/
+
+docs_dir: docs-publicos
+site_dir: _site
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo claro
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+    - content.action.edit
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+nav:
+  - Início: index.md
+  - Guia:
+      - Primeiros passos: guia/primeiros-passos.md
+      - Papéis e permissões: guia/papeis.md
+      - Glossário: guia/glossario.md
+      - Perguntas frequentes: guia/faq.md
+  - Módulos:
+      - Painel: modulos/painel.md
+      - TAAECs: modulos/taaecs.md
+      - Motor de risco: modulos/motor-de-risco.md
+      - Aprovações: modulos/aprovacoes.md
+      - Anuências: modulos/anuencias.md
+      - Visão Geral: modulos/visao-geral.md
+      - Chat: modulos/chat.md
+      - Banco de Locais: modulos/banco-locais.md
+      - Grupos: modulos/grupos.md
+      - Sugestões: modulos/sugestoes.md
+  - Configurações:
+      - Meu perfil: configuracoes/perfil.md
+      - Administração: configuracoes/administracao.md
+      - Usuários & Papéis: configuracoes/usuarios-papeis.md
+      - Pré-cadastros: configuracoes/pre-cadastros.md
+      - Parametrização do motor: configuracoes/parametros.md
+      - Catálogo de atividades: configuracoes/catalogo.md
+      - Notificações: configuracoes/notificacoes.md
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Link âncora
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/RIT-DF
+      name: RIT no GitHub
+    - icon: fontawesome/solid/globe
+      link: https://rit.org.br
+      name: RIT — Rede de Inovação e Transformação
+  generator: false
+
+copyright: >-
+  © 2026 <a href="https://rit.org.br" target="_blank" rel="noopener">RIT — Rede de Inovação e Transformação</a> ·
+  <a href="https://github.com/RIT-DF/SisTAAEC" target="_blank" rel="noopener">código-fonte da documentação</a>

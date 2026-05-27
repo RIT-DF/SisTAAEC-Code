@@ -1,0 +1,33 @@
+# MkDocs build output
+_site/
+
+# Python virtualenv usado pelo script de docs
+.venv-docs/
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Editor / SO
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs / temporários
+*.log
+.tmp/
+
+# Playwright (artefatos de captura de tela)
+.playwright-mcp/
+
+# direnv / variáveis de ambiente locais (pode conter tokens)
+.envrc
+.env
+.env.local
+.env.*.local
