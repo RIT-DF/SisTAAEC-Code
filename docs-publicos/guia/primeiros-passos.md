@@ -6,7 +6,7 @@ Este guia leva você do **primeiro acesso** até estar pronto para criar ou apro
 
 ## 1. Acessar o sistema
 
-Abra [taaecregionaldf.lovable.app](https://taaecregionaldf.lovable.app/) no navegador. A tela inicial mostra o painel de login à direita e um indicador em tempo real do **movimento do sistema** (usuários online agora e gráfico dos últimos picos de acesso — monitoramento agregado, sem dados pessoais).
+Abra [taaec.escoteirosdf.org.br](https://taaec.escoteirosdf.org.br/) no navegador. A tela inicial mostra o painel de login à direita e um indicador em tempo real do **movimento do sistema** (usuários online agora e gráfico dos últimos picos de acesso — monitoramento agregado, sem dados pessoais).
 
 ![Tela de login do TAAEC com painel de movimento do sistema](../assets/screenshots/01-login.png)
 

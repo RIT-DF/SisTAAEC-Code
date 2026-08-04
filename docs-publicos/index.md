@@ -2,7 +2,7 @@
 
 ![Sistema TAAEC](assets/screenshots/01-login.png)
 
-**Governança, Risco e Autorização de Atividades Escoteiras** — plataforma institucional da Regional DF dos Escoteiros do Brasil, desenvolvida pela [RIT — Rede de Inovação e Transformação](https://rit.org.br). Acesse em [taaecregionaldf.lovable.app](https://taaecregionaldf.lovable.app/).
+**Governança, Risco e Autorização de Atividades Escoteiras** — plataforma institucional da Regional DF dos Escoteiros do Brasil, desenvolvida pela [RIT — Rede de Inovação e Transformação](https://rit.org.br). Acesse em [taaec.escoteirosdf.org.br](https://taaec.escoteirosdf.org.br/).
 
 Esta documentação **não é só um manual de cliques**: cada seção explica para que serve a tela, quem deve usá-la e como o sistema apoia o fluxo escoteiro de autorização — da criação do Termo até a aprovação final pela Regional, passando pelo motor de risco em tempo real.
 
@@ -12,7 +12,7 @@ Se você acabou de chegar, comece pelos [Primeiros passos](guia/primeiros-passos
 
 ## O que é o TAAEC
 
-TAAEC é a sigla de **Termo de Autorização de Atividades Escoteiras e Controle** — o documento que autoriza qualquer atividade escoteira na Regional DF. O sistema substitui o trâmite em papel por um fluxo digital com:
+TAAEC é a sigla de **Termo de Autorização de Atividades Escoteiras e Controle** — o documento que autoriza qualquer atividade escoteira na Regional DF. O sistema reúne o processo inteiro num lugar só — do preenchimento ao arquivo — com:
 
 - **Motor de risco em tempo real** — calcula score, ICO e proporção adulto:jovem enquanto o DME preenche o termo
 - **Fluxo de aprovação em três etapas** — Responsável → DME → Regional

@@ -111,7 +111,7 @@ cmd_deploy() {
   log "Publicando para a branch gh-pages com mkdocs gh-deploy..."
   log "ATENÇÃO: isso faz force-push na branch gh-pages."
   mkdocs gh-deploy --strict --message "docs: deploy manual via script — {sha}"
-  ok "Publicado. Verifique em alguns segundos: https://rit-df.github.io/SisTAAEC/"
+  ok "Publicado. Verifique em alguns segundos: https://docs.taaec.escoteirosdf.org.br/"
   warn "Lembrete: se o GitHub Pages estiver no modo 'GitHub Actions' (recomendado), prefira o comando '$0 push' — o gh-deploy usa o modo 'branch gh-pages', que é alternativo."
 }
 

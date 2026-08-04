@@ -2,8 +2,8 @@
 
 Repositório da **documentação pública** do Sistema TAAEC (Termo de Autorização de Atividades Escoteiras e Controle), da Regional DF dos Escoteiros do Brasil — desenvolvido pela [RIT — Rede de Inovação e Transformação](https://rit.org.br).
 
-**Sistema:** [taaecregionaldf.lovable.app](https://taaecregionaldf.lovable.app/)
-**Documentação publicada:** [rit-df.github.io/SisTAAEC](https://rit-df.github.io/SisTAAEC/)
+**Sistema:** [taaec.escoteirosdf.org.br](https://taaec.escoteirosdf.org.br/)
+**Documentação publicada:** [docs.taaec.escoteirosdf.org.br](https://docs.taaec.escoteirosdf.org.br/)
 
 ---
 
@@ -73,7 +73,7 @@ Configuração feita uma vez, após criar o repositório:
 2. Em **Source**, escolha **GitHub Actions** (não "Deploy from a branch")
 3. Faça o primeiro push da `main` com os arquivos deste repo
 4. Aguarde o workflow rodar (aba **Actions**)
-5. A URL pública aparece em **Settings → Pages** assim que o primeiro deploy concluir: `https://rit-df.github.io/SisTAAEC/`
+5. A URL pública aparece em **Settings → Pages** assim que o primeiro deploy concluir. O domínio custom é `https://docs.taaec.escoteirosdf.org.br/` (o endereço `rit-df.github.io/SisTAAEC/` redireciona para ele).
 
 !!! note
     Se preferir o modo legado (branch `gh-pages`), use `./scripts/deploy-docs.sh deploy`. Mas o modo recomendado pelo GitHub hoje é o de **GitHub Actions** (configurado acima).
