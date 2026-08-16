@@ -20,7 +20,7 @@ Repositório da **documentação pública** do Sistema TAAEC (Termo de Autoriza�
 ├── docs/                       ← documento técnico original (.docx)
 ├── mkdocs.yml                  ← configuração do site (MkDocs Material)
 ├── requirements-docs.txt       ← dependências Python para build local
-├── scripts/deploy-docs.sh      ← script de setup / preview / build / push manual
+├── scripts/publish-manual.sh      ← script de setup / preview / build / push manual
 └── .github/workflows/
     └── deploy-docs.yml         ← workflow automático (GitHub Actions → Pages)
 ```
@@ -34,15 +34,15 @@ Repositório da **documentação pública** do Sistema TAAEC (Termo de Autoriza�
 1. **Edite os arquivos** em `docs-publicos/`
 2. **Veja localmente** durante a edição:
    ```bash
-   ./scripts/deploy-docs.sh serve     # http://127.0.0.1:8000 com live-reload
+   ./scripts/publish-manual.sh serve     # http://127.0.0.1:8000 com live-reload
    ```
 3. **Valide antes do push**:
    ```bash
-   ./scripts/deploy-docs.sh build     # build estrito; falha em link quebrado
+   ./scripts/publish-manual.sh build     # build estrito; falha em link quebrado
    ```
 4. **Publique**:
    ```bash
-   ./scripts/deploy-docs.sh push      # commit + push para main → dispara o GitHub Actions
+   ./scripts/publish-manual.sh push      # commit + push para main → dispara o GitHub Actions
    ```
 
 O GitHub Actions detecta o push, rebuilda o site e publica no GitHub Pages em ~1-2 minutos.
@@ -51,12 +51,12 @@ O GitHub Actions detecta o push, rebuilda o site e publica no GitHub Pages em ~1
 
 | Comando | O que faz |
 |---|---|
-| `./scripts/deploy-docs.sh setup` | Cria `.venv-docs/` e instala `mkdocs-material`. Roda 1x ou ao mudar `requirements-docs.txt` |
-| `./scripts/deploy-docs.sh serve` | Servidor local com live-reload em `http://127.0.0.1:8000` |
-| `./scripts/deploy-docs.sh build` | Build estrito; falha se houver link quebrado |
-| `./scripts/deploy-docs.sh push` | Commit + push de `docs-publicos/` para `main` (dispara Actions) |
-| `./scripts/deploy-docs.sh deploy` | Publica direto na branch `gh-pages` via `mkdocs gh-deploy` (modo alternativo) |
-| `./scripts/deploy-docs.sh help` | Mostra ajuda |
+| `./scripts/publish-manual.sh setup` | Cria `.venv-docs/` e instala `mkdocs-material`. Roda 1x ou ao mudar `requirements-docs.txt` |
+| `./scripts/publish-manual.sh serve` | Servidor local com live-reload em `http://127.0.0.1:8000` |
+| `./scripts/publish-manual.sh build` | Build estrito; falha se houver link quebrado |
+| `./scripts/publish-manual.sh push` | Commit + push de `docs-publicos/` para `main` (dispara Actions) |
+| `./scripts/publish-manual.sh deploy` | Publica direto na branch `gh-pages` via `mkdocs gh-deploy` (modo alternativo) |
+| `./scripts/publish-manual.sh help` | Mostra ajuda |
 
 ### Forçar redeploy sem mudanças
 
@@ -76,7 +76,7 @@ Configuração feita uma vez, após criar o repositório:
 5. A URL pública aparece em **Settings → Pages** assim que o primeiro deploy concluir. O domínio custom é `https://docs.taaec.escoteirosdf.org.br/` (o endereço `rit-df.github.io/SisTAAEC/` redireciona para ele).
 
 !!! note
-    Se preferir o modo legado (branch `gh-pages`), use `./scripts/deploy-docs.sh deploy`. Mas o modo recomendado pelo GitHub hoje é o de **GitHub Actions** (configurado acima).
+    Se preferir o modo legado (branch `gh-pages`), use `./scripts/publish-manual.sh deploy`. Mas o modo recomendado pelo GitHub hoje é o de **GitHub Actions** (configurado acima).
 
 ---
 
@@ -85,7 +85,7 @@ Configuração feita uma vez, após criar o repositório:
 - **Python 3.10+** (preferencialmente 3.12)
 - **git** com permissão de push na `main`
 
-Tudo mais (mkdocs, plugins, tema) é instalado em venv local por `./scripts/deploy-docs.sh setup`.
+Tudo mais (mkdocs, plugins, tema) é instalado em venv local por `./scripts/publish-manual.sh setup`.
 
 ---
 
