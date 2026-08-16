@@ -5,6 +5,7 @@
 # Um comando só, em vez de seis. Executa os scripts de bin/ na ORDEM CANÔNICA,
 # independente da ordem em que você passar as flags:
 #   1. sync-code      envia o código para o repositório
+#      (ou pull-code, quando o código é escrito fora e aqui é espelho)
 #   2. sync-project   envia docs, decisões e backlog
 #   3. sync-local     espelha o plugin no WordPress local (DEV)
 #   4. build-zip      gera o ZIP instalável em dist/
@@ -25,7 +26,8 @@
 #
 # Flags:
 #   -a, --all       Executa todos os passos que existirem neste projeto.
-#   -c, --code      sync-code.sh      (commita e envia o repositório do código).
+#   -c, --code      sync-code.sh      (commita e envia o repositório do código),
+#                   ou pull-code.sh quando é este que existe (espelho do Lovable).
 #   -p, --projeto   sync-project.sh   (commita e envia docs, decisões e backlog).
 #   -l, --local     sync-local.sh     (espelha o plugin no WordPress local/DEV).
 #   -z, --zip       build-zip.sh      (gera o ZIP instalável em dist/).
@@ -48,7 +50,13 @@ set -uo pipefail
 # então o caminho precisa ser resolvido — senão procura o bin/ no lugar errado.
 # A raiz do repositório sai do git, nunca de contar níveis: assim o bin/ pode
 # mudar de profundidade sem que este script passe a procurar no lugar errado.
-BIN_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+# O caminho RESOLVIDO deste arquivo, guardado antes do cd abaixo. A ajuda lê o
+# próprio cabeçalho, e usar "$0" para isso quebrava: chamado pelo atalho da raiz
+# do container, $0 é "./sync-all.sh" — relativo ao diretório de ONDE se chamou.
+# Depois do cd para a raiz do repositório, esse caminho não existe mais, e
+# `./sync-all.sh` sem argumento nenhum morria com "não foi possível ler".
+_SELF="$(readlink -f "${BASH_SOURCE[0]}")"
+BIN_DIR="$(cd "$(dirname "$_SELF")" && pwd)"
 REPO_DIR="$(git -C "$BIN_DIR" rev-parse --show-toplevel 2>/dev/null || dirname "$BIN_DIR")"
 cd "$REPO_DIR"                                  # daqui, bin/<script>.sh resolve
 PROJECT="$(basename "$(dirname "$REPO_DIR")")"  # nome do container, para exibição
@@ -63,7 +71,10 @@ DO_CODE=0 DO_PROJECT=0 DO_LOCAL=0 DO_ZIP=0 DO_MANUAL=0 DO_DEPLOY=0
 ALL=0 YES=0 DRY=0 SKIP_BUILD=0
 declare -a DEPLOY_EXTRA=()
 
-usage() { sed -n '2,44p' "$0" | sed 's/^# \{0,1\}//'; }
+# A ajuda é o próprio cabeçalho, lido até a primeira linha que não é comentário.
+# Faixa fixa de linhas (2,44p) quebra em silêncio no primeiro comentário novo —
+# e este arquivo é modelo, feito para ser editado em cada projeto.
+usage() { awk 'NR>1 { if (!/^#/) exit; sub(/^# ?/, ""); print }' "$_SELF"; }
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -88,7 +99,7 @@ done
 # arquivo utilizável em todos: o portal não tem build-zip, o manual avulso não
 # tem deploy, e nenhum dos dois deve abortar por causa disso.
 if [ "$ALL" -eq 1 ]; then
-  [ -f bin/sync-code.sh ]      && DO_CODE=1
+  { [ -f bin/sync-code.sh ] || [ -f bin/pull-code.sh ]; } && DO_CODE=1
   [ -f bin/sync-project.sh ]   && DO_PROJECT=1
   [ -f bin/sync-local.sh ]     && DO_LOCAL=1
   [ -f bin/build-zip.sh ]      && DO_ZIP=1
@@ -109,9 +120,16 @@ if [ "$DO_DEPLOY" -eq 1 ] && [ "$DO_ZIP" -eq 0 ] && [ "$SKIP_BUILD" -eq 0 ] && [
   DO_ZIP=1; AUTO_BUILD=1
 fi
 
+# O passo do código tem duas encarnações e uma só posição na ordem: onde o
+# código é NOSSO, sync-code.sh envia; onde ele é escrito fora (Lovable),
+# pull-code.sh traz. Nunca os dois no mesmo projeto — por isso um único DO_CODE.
+CODE_STEP=""
+[ -f bin/sync-code.sh ] && CODE_STEP="bin/sync-code.sh"
+[ -z "$CODE_STEP" ] && [ -f bin/pull-code.sh ] && CODE_STEP="bin/pull-code.sh"
+
 # Pré-checagem: os scripts necessários existem neste projeto? (portabilidade na família)
 declare -a NEED=()
-[ "$DO_CODE"    -eq 1 ] && NEED+=("bin/sync-code.sh")
+[ "$DO_CODE"    -eq 1 ] && NEED+=("${CODE_STEP:-bin/sync-code.sh}")
 [ "$DO_PROJECT" -eq 1 ] && NEED+=("bin/sync-project.sh")
 [ "$DO_LOCAL"   -eq 1 ] && NEED+=("bin/sync-local.sh")
 [ "$DO_ZIP"     -eq 1 ] && NEED+=("bin/build-zip.sh")
@@ -160,13 +178,14 @@ print_summary() {
 
 # --- Plano ---
 log "=== ${PROJECT} · sincronização ==="
-echo "  Passos: $( [ $DO_CODE -eq 1 ] && printf 'sync-code ' )$( [ $DO_PROJECT -eq 1 ] && printf 'sync-project ' )$( [ $DO_LOCAL -eq 1 ] && printf 'sync-local ' )$( [ $DO_ZIP -eq 1 ] && printf 'build-zip ' )$( [ $DO_MANUAL -eq 1 ] && printf 'publish-manual ' )$( [ $DO_DEPLOY -eq 1 ] && printf 'deploy ' )"
+echo "  Passos: $( [ $DO_CODE -eq 1 ] && printf '%s ' "$(basename "$CODE_STEP" .sh)" )$( [ $DO_PROJECT -eq 1 ] && printf 'sync-project ' )$( [ $DO_LOCAL -eq 1 ] && printf 'sync-local ' )$( [ $DO_ZIP -eq 1 ] && printf 'build-zip ' )$( [ $DO_MANUAL -eq 1 ] && printf 'publish-manual ' )$( [ $DO_DEPLOY -eq 1 ] && printf 'deploy ' )"
 [ "$AUTO_BUILD" -eq 1 ] && warn "  (build-zip incluído automaticamente antes do deploy; use --skip-build para pular)"
 [ "$DRY" -eq 1 ] && warn "  Modo: DRY-RUN"
 
 # --- Execução na ordem canônica ---
 if [ "$DO_CODE" -eq 1 ]; then
-  if [ "$DRY" -eq 1 ]; then dry_step "sync-code" bin/sync-code.sh; else run_step "sync-code" bin/sync-code.sh; fi
+  _cl="$(basename "$CODE_STEP" .sh)"
+  if [ "$DRY" -eq 1 ]; then dry_step "$_cl" "$CODE_STEP"; else run_step "$_cl" "$CODE_STEP"; fi
 fi
 if [ "$DO_PROJECT" -eq 1 ]; then
   if [ "$DRY" -eq 1 ]; then dry_step "sync-project" bin/sync-project.sh; else run_step "sync-project" bin/sync-project.sh; fi
